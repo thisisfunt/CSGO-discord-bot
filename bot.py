@@ -11,10 +11,11 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         if message.author == self.user:
             return
-        if message.content.split(" ")[0] == "bot":
+        if message.content.split(" ")[0] == "bot" and len(message.content.split(" ")) == 2:
             if message.content.split(" ")[1] == "map":
                 map = maps[random.randint(0, len(maps) - 1)]
                 await message.channel.send(map)
+            
             
 client = MyClient()
 
