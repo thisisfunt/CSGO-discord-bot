@@ -1,5 +1,6 @@
 import discord
 import random
+import os
 
 maps = ["Mirage", "Overpass", "Inferno", "Dust II"]
 
@@ -16,4 +17,6 @@ class MyClient(discord.Client):
                 await message.channel.send(map)
             
 client = MyClient()
-client.run('NzA5NDMxMjQyMjY4OTk5ODEx.XrqpRg.Cq_tfpjD2vGx2Oahyd32NGrDmFU')
+
+token = os.environ.get("token_side")
+client.run(str(token))
