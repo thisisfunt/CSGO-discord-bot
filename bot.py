@@ -11,12 +11,12 @@ class MyClient(discord.Client):
     async def on_message(self, message):
         if message.author == self.user:
             return
-        if message.content.split(" ")[0] == "bot" and len(message.content.split(" ")) == 2:
-            if message.content.split(" ")[1] == "map":
+        if message.content.split(" ")[0] == "bot":
+            if message.content.split(" ")[1] == "map" and len(message.content.split(" ")) == 2:
                 map = maps[random.randint(0, len(maps) - 1)]
                 await message.channel.send(map)
-            
-            
+            else:
+                await message.channel.send("Я твоя не понимать!")
 client = MyClient()
 
 token = os.environ.get("token_side")
