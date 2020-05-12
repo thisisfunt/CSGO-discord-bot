@@ -16,4 +16,4 @@ class MyClient(discord.Client):
                 await message.channel.send(map)
             
 client = MyClient()
-client.run('NzA5NDMxMjQyMjY4OTk5ODEx.Xrqmtg.o_yv3z1WVRVuOOboc8ZP5qxHzZw')
+client.run('NzA5NDMxMjQyMjY4OTk5ODEx.XrqpRg.Cq_tfpjD2vGx2Oahyd32NGrDmFU')
