@@ -44,7 +44,7 @@ class MyClient(discord.Client):
                 soup = BeautifulSoup(full_page.content, "html.parser")
                 playerinfo = soup.findAll("a", {"class":"name"})
                 kdinfo = soup.findAll("span", {"class":"bold"})
-                teamtext = "Топ игроков:\n"
+                teamtext = "Топ команд:\n"
                 for i in range(8, len(playerinfo)):
                     if i == 7:
                         break
