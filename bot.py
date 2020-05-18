@@ -35,6 +35,8 @@ class MyClient(discord.Client):
                 kdinfo = soup.findAll("span", {"class":"bold"})
                 playertext = "Топ игроков:\n"
                 for i in range(0, len(playerinfo)):
+                    if i == 7:
+                        break
                     playertext += playerinfo[i].text + " - " + kdinfo[i * 2].text + "\n"
                 await message.channel.send(playertext + "\n" + hltvstat)
             else:
