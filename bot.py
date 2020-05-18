@@ -38,7 +38,18 @@ class MyClient(discord.Client):
                     if i == 7:
                         break
                     playertext += playerinfo[i].text + " - " + kdinfo[i * 2].text + "\n"
-                await message.channel.send(playertext + "\n" + hltvstat)
+                await message.channel.send(playertext + hltvstat)
+            elif message.content.split(" ")[1] == "teams" and len(message.content.split(" ")) == 2:
+                full_page = requests.get(hltvstat, user)
+                soup = BeautifulSoup(full_page.content, "html.parser")
+                playerinfo = soup.findAll("a", {"class":"name"})
+                kdinfo = soup.findAll("span", {"class":"bold"})
+                teamtext = "Топ игроков:\n"
+                for i in range(8, len(playerinfo)):
+                    if i == 7:
+                        break
+                    teamtext += playerinfo[i].text + " - " + kdinfo[i * 2].text + "\n"
+                await message.channel.send(teamtext + hltvstat)
             else:
                 await message.channel.send("Я твоя не понимать!")
 client = MyClient()
