@@ -33,7 +33,7 @@ class MyClient(discord.Client):
                 soup = BeautifulSoup(full_page.content, "html.parser")
                 playerinfo = soup.findAll("a", {"class":"name"})
                 kdinfo = soup.findAll("span", {"class":"bold"})
-                playertext = "Топ игроков:\n"
+                playertext = "Топ команд:\n"
                 for i in range(0, len(playerinfo)):
                     if i == 7:
                         break
@@ -44,12 +44,14 @@ class MyClient(discord.Client):
                 soup = BeautifulSoup(full_page.content, "html.parser")
                 playerinfo = soup.findAll("a", {"class":"name"})
                 kdinfo = soup.findAll("span", {"class":"bold"})
-                teamtext = "Топ команд:\n"
+                teamtext = "Топ игроков:\n"
                 for i in range(8, len(playerinfo)):
                     if i == 7:
                         break
                     teamtext += playerinfo[i].text + " - " + kdinfo[i * 2].text + "\n"
                 await message.channel.send(teamtext + hltvstat)
+            elif message.content.split(" ")[1] == "phones" and len(message.content.split(" ")) == 2:
+                await message.channel.send("Тема - 79854373360\nСаня - 79680792607\nФиля - 89685220396\nЗахар - ")
             else:
                 await message.channel.send("Я твоя не понимать!")
 client = MyClient()
