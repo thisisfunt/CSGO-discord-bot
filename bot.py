@@ -51,7 +51,7 @@ class MyClient(discord.Client):
                     teamtext += playerinfo[i].text + " - " + kdinfo[i * 2].text + "\n"
                 await message.channel.send(teamtext + hltvstat)
             elif message.content.split(" ")[1] == "phones" and len(message.content.split(" ")) == 2:
-                await message.channel.send("Тема - 79854373360\nСаня - 79680792607\nФиля - 89685220396\nЗахар - 79774251205\nВлад - 89775668308")
+                await message.channel.send(os.environ.get("numbers"))
             else:
                 await message.channel.send("Я твоя не понимать!")
 client = MyClient()
