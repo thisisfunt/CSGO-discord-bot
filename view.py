@@ -14,6 +14,7 @@ class MyClient(discord.Client):
         print('Logged on as', self.user)
 
     async def on_message(self, message):
+        try:
             if message.author == self.user:
                 return
             splited_message = message.content.split(" ")
@@ -28,9 +29,12 @@ class MyClient(discord.Client):
                     await message.channel.send(model.best_teams())
                 elif splited_message[1] == "players" and len(splited_message) == 2:
                     await message.channel.send(model.best_players())
-
+        except:
+            message.channel.send("error")
 client = MyClient()
 
 token = os.environ.get("token")
+
+client.run(str(token))
 
 client.run(str(token))
