@@ -1,4 +1,5 @@
+wheel
 discord.py
 requests
-bs4
+lxml
 HLTV

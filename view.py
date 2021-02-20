@@ -1,7 +1,5 @@
 import discord
 import random
-import requests
-from bs4 import BeautifulSoup
 import os
 import model as model
 
@@ -28,11 +26,11 @@ class MyClient(discord.Client):
                     await message.channel.send(model.best_match())
                 elif splited_message[1] == "teams" and len(splited_message) == 2:
                     await message.channel.send(model.best_teams())
-                elif splited_message[1] == "players" and len(splited_message) == 3:
+                elif splited_message[1] == "players" and len(splited_message) == 2:
                     await message.channel.send(model.best_players())
 
 client = MyClient()
 
-#token = os.environ.get("token_side")
 token = os.environ.get("token")
+
 client.run(str(token))
