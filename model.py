@@ -8,7 +8,13 @@ user = {"UserAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 maps = ["Mirage", "Overpass", "Inferno", "Dust II"]
 
 def helped_message():
-    return "helped massage"
+    return """
+    help      - информация
+    random... - случайное значение
+    matches   - матчи
+    teams     - команды
+    players   - игроки
+    """
 
 def random_choice(choiseList : list):
     return "Случайный выбор : " + random.choice(choiseList)
